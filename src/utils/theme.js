@@ -1,8 +1,12 @@
 const theme = {
   colors: {
     main: '#03B0F0',
+    white: '#FFF',
+    background: '#F5F7FF',
+    border: '#D1D1D1',
     textColor: '#19191D',
-    shadow: 'rgba(232, 236, 251, 88)'
+    shadow: 'rgba(232, 236, 251, 88)',
+    shadowBlue: 'rgba(3, 176, 240, 0.3)'
   },
 
   mediaQueries: {
