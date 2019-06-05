@@ -19,8 +19,11 @@ export default createGlobalStyle`
 
         /* Declaracion de nuestras variables CSS */
         --color-main: ${props => props.theme.colors.main};
+        --color-white: ${props => props.theme.colors.white};
+        --color-background: ${props => props.theme.colors.background};
         --color-text: ${props => props.theme.colors.textColor};
         --color-shadow: ${props => props.theme.colors.shadow};
+        --color-shadowBlue: ${props => props.theme.colors.shadowBlue};
 
         @media ${props => props.theme.mediaQueries.small} {
             font-size: 80%;
