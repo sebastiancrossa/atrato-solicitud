@@ -12,6 +12,7 @@ import {
 // Component imports
 import Input from '../../../components/UI/Forms/Input/Input';
 import Button from '../../../components/UI/Forms/Button/Button';
+import DescriptionBlock from '../../../components/UI/Forms/DescriptionBlock/DescriptionBlock';
 
 const Header = styled.h1`
   font-size: 1.5rem;
@@ -112,6 +113,10 @@ const PatientForm = ({ loading }) => {
               Solicitar
             </Button>
           </StyledForm>
+          <DescriptionBlock>
+            Simplifica tu tratamiento a pagos mensuales fáciles, sin comisiones
+            ocultas ni sorpresas.
+          </DescriptionBlock>
         </FormWrapper>
       )}
     </Formik>

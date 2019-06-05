@@ -6,7 +6,7 @@ const theme = {
     border: '#D1D1D1',
     textColor: '#19191D',
     shadow: 'rgba(232, 236, 251, 88)',
-    shadowBlue: 'rgba(3, 176, 240, 45)'
+    shadowBlue: 'rgba(3, 176, 240, 0.3)'
   },
 
   mediaQueries: {
