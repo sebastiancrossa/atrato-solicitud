@@ -3,12 +3,15 @@ import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-// Component imports
 import {
   FormWrapper,
   StyledForm,
   StyledFormRow
 } from '../../../hoc/Layout/elements';
+
+// Component imports
+import Input from '../../../components/UI/Forms/Input/Input';
+import Button from '../../../components/UI/Forms/Button/Button';
 
 const Header = styled.h1`
   font-size: 1.5rem;
@@ -38,7 +41,7 @@ const PatientFormSchema = Yup.object().shape({
     .required('Favor de introducir ingreso')
 });
 
-const PatientForm = () => {
+const PatientForm = ({ loading }) => {
   return (
     <Formik
       initialValues={{
@@ -58,19 +61,35 @@ const PatientForm = () => {
           <StyledForm>
             <Header>Llene la siguiente solicitud</Header>
             <StyledFormRow>
-              <Field type='text' name='firstName' placeholder='Nombre' />
-              <ErrorMessage name='firstName' />
+              <Field
+                type='text'
+                name='firstName'
+                placeholder='Nombre'
+                component={Input}
+              />
 
-              <Field type='text' name='lastName' placeholder='Apellido' />
-              <ErrorMessage name='lastName' />
+              <Field
+                type='text'
+                name='lastName'
+                placeholder='Apellido'
+                component={Input}
+              />
             </StyledFormRow>
 
-            <Field type='email' name='email' placeholder='Correo' />
-            <ErrorMessage name='email' />
+            <Field
+              type='email'
+              name='email'
+              placeholder='Correo'
+              component={Input}
+            />
 
             <StyledFormRow>
-              <Field type='number' name='age' placeholder='Edad' />
-              <ErrorMessage name='age' />
+              <Field
+                type='number'
+                name='age'
+                placeholder='Edad'
+                component={Input}
+              />
 
               <label>
                 <input type='checkbox' name='maritalStatus' />
@@ -82,10 +101,16 @@ const PatientForm = () => {
               type='number'
               name='averageMonthlyIncome'
               placeholder='Ami'
+              component={Input}
             />
-            <ErrorMessage name='averageMonthlyIncome' />
 
-            <button type='submit'>Solicitar</button>
+            <Button
+              disabled={!isValid || isSubmitting}
+              loading={loading ? 'Mandando solicitud...' : null}
+              type='submit'
+            >
+              Solicitar
+            </Button>
           </StyledForm>
         </FormWrapper>
       )}

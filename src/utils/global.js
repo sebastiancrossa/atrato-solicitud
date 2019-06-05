@@ -21,6 +21,7 @@ export default createGlobalStyle`
         --color-main: ${props => props.theme.colors.main};
         --color-white: ${props => props.theme.colors.white};
         --color-background: ${props => props.theme.colors.background};
+        --color-border: ${props => props.theme.colors.border};
         --color-text: ${props => props.theme.colors.textColor};
         --color-shadow: ${props => props.theme.colors.shadow};
         --color-shadowBlue: ${props => props.theme.colors.shadowBlue};

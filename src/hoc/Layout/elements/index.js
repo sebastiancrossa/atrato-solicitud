@@ -19,6 +19,7 @@ export const FormWrapper = styled.div`
 `;
 
 export const StyledForm = styled(Form)`
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -30,4 +31,8 @@ export const StyledForm = styled(Form)`
 
 export const StyledInputContainer = styled.div``;
 
-export const StyledFormRow = styled.div``;
+export const StyledFormRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 1.5rem;
+`;
