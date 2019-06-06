@@ -29,8 +29,6 @@ export const StyledForm = styled(Form)`
   top: 50px;
 `;
 
-export const StyledInputContainer = styled.div``;
-
 export const StyledFormRow = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);

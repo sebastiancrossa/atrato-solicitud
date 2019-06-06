@@ -18,7 +18,16 @@ const Header = styled.h1`
   font-size: 1.5rem;
 
   color: var(--color-text);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
+const StyledLabel = styled.label`
+  align-self: center;
+  font-size: 1.3rem;
+`;
+
+const StyledInput = styled.input`
+  margin-right: 0.5rem;
 `;
 
 const PatientFormSchema = Yup.object().shape({
@@ -27,7 +36,7 @@ const PatientFormSchema = Yup.object().shape({
     .min(3, 'Nombre muy corto')
     .max(25, 'Nombre muy largo'),
   lastName: Yup.string()
-    .required('Escriba sus apellidos')
+    .required('Escriba su apellido')
     .min(3, 'Apellido muy corto')
     .max(25, 'Apellido muy largo'),
   email: Yup.string()
@@ -65,14 +74,16 @@ const PatientForm = ({ loading }) => {
               <Field
                 type='text'
                 name='firstName'
-                placeholder='Nombre'
+                title='Nombre'
+                placeholder='Nombre...'
                 component={Input}
               />
 
               <Field
                 type='text'
                 name='lastName'
-                placeholder='Apellido'
+                title='Apellido'
+                placeholder='Apellido...'
                 component={Input}
               />
             </StyledFormRow>
@@ -80,7 +91,8 @@ const PatientForm = ({ loading }) => {
             <Field
               type='email'
               name='email'
-              placeholder='Correo'
+              title='Correo'
+              placeholder='Correo..'
               component={Input}
             />
 
@@ -88,20 +100,22 @@ const PatientForm = ({ loading }) => {
               <Field
                 type='number'
                 name='age'
-                placeholder='Edad'
+                title='Edad'
+                placeholder='Edad...'
                 component={Input}
               />
 
-              <label>
-                <input type='checkbox' name='maritalStatus' />
+              <StyledLabel>
+                <StyledInput type='checkbox' name='maritalStatus' />
                 Casad@
-              </label>
+              </StyledLabel>
             </StyledFormRow>
 
             <Field
               type='number'
               name='averageMonthlyIncome'
-              placeholder='Ami'
+              title='Ingreso mensual promedio'
+              placeholder='Ingreso mensual promedio'
               component={Input}
             />
 
@@ -113,6 +127,7 @@ const PatientForm = ({ loading }) => {
               Solicitar
             </Button>
           </StyledForm>
+
           <DescriptionBlock>
             Simplifica tu tratamiento a pagos mensuales fáciles, sin comisiones
             ocultas ni sorpresas.
