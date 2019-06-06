@@ -44,7 +44,7 @@ const PatientFormSchema = Yup.object().shape({
     .required('Favor de escribir un correo'),
   age: Yup.number()
     .required('Favor de introducir edad')
-    .min(18, 'Debe ser mayor de edad para mandar una solicitud')
+    .moreThan(17, 'Debe ser mayor de edad para mandar una solicitud')
     .positive('Numero invalido'),
   averageMonthlyIncome: Yup.number()
     .positive('Numer invalido')
