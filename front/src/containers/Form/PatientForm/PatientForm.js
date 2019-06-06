@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+
+import { connect } from 'react-redux';
+import * as actions from '../../../store/actions';
+
+import axios from 'axios';
 
 import {
   FormWrapper,
@@ -51,7 +56,9 @@ const PatientFormSchema = Yup.object().shape({
     .required('Favor de introducir ingreso')
 });
 
-const PatientForm = ({ loading }) => {
+const PatientForm = ({ loading, error, submitForm }) => {
+  const [isMarriedBool, setIsMarried] = useState(false);
+
   return (
     <Formik
       initialValues={{
@@ -59,11 +66,30 @@ const PatientForm = ({ loading }) => {
         lastName: '',
         email: '',
         age: '',
+        isMarried: false,
         averageMonthlyIncome: ''
       }}
       validationSchema={PatientFormSchema}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
+        let firstName = values.firstName;
+
+        axios
+          .post('http://localhost:4000/users', {
+            firstName: firstName,
+            lastName: values.lastName,
+            email: values.email,
+            age: values.age,
+            isMarried: values.isMarried,
+            averageMonthlyIncome: values.averageMontlyIncome
+          })
+          .then(function(res) {
+            console.log(res);
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+
+        setSubmitting(false);
       }}
     >
       {({ isSubmitting, isValid }) => (
@@ -105,10 +131,17 @@ const PatientForm = ({ loading }) => {
                 component={Input}
               />
 
-              <StyledLabel>
-                <StyledInput type='checkbox' name='maritalStatus' />
-                Casad@
-              </StyledLabel>
+              <Field name='isMarried' value={isMarriedBool}>
+                {({ field, form }) => (
+                  <StyledLabel>
+                    <StyledInput
+                      type='checkbox'
+                      onClick={() => setIsMarried(!isMarriedBool)}
+                    />
+                    Casad@
+                  </StyledLabel>
+                )}
+              </Field>
             </StyledFormRow>
 
             <Field
@@ -138,4 +171,16 @@ const PatientForm = ({ loading }) => {
   );
 };
 
-export default PatientForm;
+const mapStateToProps = ({ form }) => ({
+  loading: form.loading,
+  error: form.error
+});
+
+const mapDispatchToProps = {
+  submitForm: actions.submitForm
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PatientForm);
