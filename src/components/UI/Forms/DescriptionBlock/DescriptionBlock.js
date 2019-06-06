@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const StyledDescriptionBlock = styled.div`
   width: 55%;
-  height: 90%;
+  height: 88%;
 
   position: absolute;
-  top: 2.5rem;
+  top: 2.6rem;
   right: -6.5rem;
   padding: 2rem 3rem;
 

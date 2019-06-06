@@ -6,7 +6,7 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   position: relative;
 `;
 
@@ -19,16 +19,21 @@ const StyledInput = styled.input`
   border: 1px solid var(--color-border);
   border-radius: 5px;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.2rem;
 
   &::placeholder {
     color: gray;
   }
 `;
 
+const StyledInputLabel = styled.p`
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+`;
+
 const Error = styled.div`
   color: red;
-  padding: 0rem 1rem;
+  padding: 0rem 1.3rem;
 
   position: absolute;
   bottom: 0;
@@ -46,7 +51,7 @@ const Error = styled.div`
 const Input = ({ field, form: { touched, errors }, ...props }) => {
   return (
     <InputWrapper>
-      <p>{field.name}</p>
+      <StyledInputLabel>{field.name}</StyledInputLabel>
       <StyledInput {...field} {...props} />
       <Error show={errors[field.name] && touched[field.name]}>
         {errors[field.name]}

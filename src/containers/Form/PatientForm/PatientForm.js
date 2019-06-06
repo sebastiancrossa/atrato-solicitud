@@ -18,7 +18,16 @@ const Header = styled.h1`
   font-size: 1.5rem;
 
   color: var(--color-text);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+`;
+
+const StyledLabel = styled.label`
+  align-self: center;
+  font-size: 1.3rem;
+`;
+
+const StyledInput = styled.input`
+  margin-right: 0.5rem;
 `;
 
 const PatientFormSchema = Yup.object().shape({
@@ -64,44 +73,44 @@ const PatientForm = ({ loading }) => {
             <StyledFormRow>
               <Field
                 type='text'
-                name='firstName'
-                placeholder='Nombre'
+                name='Nombre'
+                placeholder='Nombre...'
                 component={Input}
               />
 
               <Field
                 type='text'
-                name='lastName'
-                placeholder='Apellido'
+                name='Apellido'
+                placeholder='Apellido...'
                 component={Input}
               />
             </StyledFormRow>
 
             <Field
               type='email'
-              name='email'
-              placeholder='Correo'
+              name='Correo'
+              placeholder='Correo..'
               component={Input}
             />
 
             <StyledFormRow>
               <Field
                 type='number'
-                name='age'
-                placeholder='Edad'
+                name='Edad'
+                placeholder='Edad...'
                 component={Input}
               />
 
-              <label>
-                <input type='checkbox' name='maritalStatus' />
+              <StyledLabel>
+                <StyledInput type='checkbox' name='maritalStatus' />
                 Casad@
-              </label>
+              </StyledLabel>
             </StyledFormRow>
 
             <Field
               type='number'
-              name='averageMonthlyIncome'
-              placeholder='Ami'
+              name='Ingreso mensual promedio'
+              placeholder='Ingreso mensual promedio'
               component={Input}
             />
 
@@ -113,6 +122,7 @@ const PatientForm = ({ loading }) => {
               Solicitar
             </Button>
           </StyledForm>
+
           <DescriptionBlock>
             Simplifica tu tratamiento a pagos mensuales fáciles, sin comisiones
             ocultas ni sorpresas.
