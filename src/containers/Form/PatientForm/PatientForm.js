@@ -36,7 +36,7 @@ const PatientFormSchema = Yup.object().shape({
     .min(3, 'Nombre muy corto')
     .max(25, 'Nombre muy largo'),
   lastName: Yup.string()
-    .required('Escriba sus apellidos')
+    .required('Escriba su apellido')
     .min(3, 'Apellido muy corto')
     .max(25, 'Apellido muy largo'),
   email: Yup.string()
@@ -73,14 +73,16 @@ const PatientForm = ({ loading }) => {
             <StyledFormRow>
               <Field
                 type='text'
-                name='Nombre'
+                name='firstName'
+                title='Nombre'
                 placeholder='Nombre...'
                 component={Input}
               />
 
               <Field
                 type='text'
-                name='Apellido'
+                name='lastName'
+                title='Apellido'
                 placeholder='Apellido...'
                 component={Input}
               />
@@ -88,7 +90,8 @@ const PatientForm = ({ loading }) => {
 
             <Field
               type='email'
-              name='Correo'
+              name='email'
+              title='Correo'
               placeholder='Correo..'
               component={Input}
             />
@@ -96,7 +99,8 @@ const PatientForm = ({ loading }) => {
             <StyledFormRow>
               <Field
                 type='number'
-                name='Edad'
+                name='age'
+                title='Edad'
                 placeholder='Edad...'
                 component={Input}
               />
@@ -109,7 +113,8 @@ const PatientForm = ({ loading }) => {
 
             <Field
               type='number'
-              name='Ingreso mensual promedio'
+              name='averageMonthlyIncome'
+              title='Ingreso mensual promedio'
               placeholder='Ingreso mensual promedio'
               component={Input}
             />

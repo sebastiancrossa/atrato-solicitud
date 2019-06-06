@@ -9,6 +9,7 @@ const StyledButton = styled.button`
   padding: 1.1rem 2rem;
   border: none;
   border-radius: 0.5rem;
+  text-transform: uppercase;
 
   font-size: 1.2rem;
   color: var(--color-white);
