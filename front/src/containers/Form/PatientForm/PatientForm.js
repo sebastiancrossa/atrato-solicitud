@@ -71,11 +71,9 @@ const PatientForm = ({ loading, error, submitForm }) => {
       }}
       validationSchema={PatientFormSchema}
       onSubmit={(values, { setSubmitting }) => {
-        let firstName = values.firstName;
-
         axios
-          .post('http://localhost:4000/users', {
-            firstName: firstName,
+          .post('localhost:4000/users', {
+            firstName: values.firstName,
             lastName: values.lastName,
             email: values.email,
             age: values.age,
