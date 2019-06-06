@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Component imports
+import Navbar from '../../components/Navigation/Navbar/Navbar';
+
 const MainWrapper = styled.div`
   width: 100%;
   height: 100vh;
@@ -13,7 +16,12 @@ const MainWrapper = styled.div`
 `;
 
 const Layout = ({ children }) => {
-  return <MainWrapper>{children}</MainWrapper>;
+  return (
+    <>
+      <Navbar />
+      <MainWrapper>{children}</MainWrapper>
+    </>
+  );
 };
 
 export default Layout;
