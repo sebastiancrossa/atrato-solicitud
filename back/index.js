@@ -34,12 +34,12 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  let firstName = connection.escape(req.body.firstName);
-  let lastName = connection.escape(req.body.lastName);
-  let email = connection.escape(req.body.email);
-  let age = connection.escape(req.body.age);
-  let isMarried = connection.escape(req.body.isMarried);
-  let averageMonthlyIncome = connection.escape(req.body.averageMonthlyIncome);
+  let firstName = req.body.firstName;
+  let lastName = req.body.lastName;
+  let email = req.body.email;
+  let age = req.body.age;
+  let isMarried = req.body.isMarried;
+  let averageMonthlyIncome = req.body.averageMonthlyIncome;
 
   let query = `INSERT INTO users(firstName, lastName, email, age, isMarried, averageMonthlyIncome)\
         VALUES (${firstName}, ${lastName}, ${email}, ${age}, ${isMarried}, ${averageMontlhyIncome})`;
