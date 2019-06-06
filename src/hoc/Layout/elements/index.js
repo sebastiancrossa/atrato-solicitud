@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { Form } from 'formik';
 
+export const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  max-width: 180rem;
+  margin: 0 auto;
+`;
+
 export const FormWrapper = styled.div`
   width: 50%;
   height: 45rem;

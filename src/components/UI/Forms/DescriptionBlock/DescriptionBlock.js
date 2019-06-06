@@ -11,7 +11,7 @@ const StyledDescriptionBlock = styled.div`
   padding: 2rem 3rem;
 
   border-radius: 1rem;
-  box-shadow: 0rem 0.2rem 3.5rem var(--color-shadowBlue);
+  box-shadow: 0rem 0.2rem 3.5rem var(--color-shadowDark);
 
   background-color: var(--color-main);
   color: var(--color-white);
